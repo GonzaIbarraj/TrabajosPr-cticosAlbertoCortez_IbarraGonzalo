@@ -14,10 +14,14 @@ public class Main {
         // Inicializar repositorios
         InMemoryRepository<Empresa> empresaRepository = new InMemoryRepository<>();
         System.out.println(" -----------PROBAMOS EL SISTEMA ----------");
+        Pais argentina = Pais.builder().nombre("Argentina").
+                build();
+
         // Crear provincias y localidades
         Provincia buenosAires = Provincia.builder()
                 .id(1L)
                 .nombre("Buenos Aires")
+                .pais(argentina)
                 .build();
 
         Localidad caba = Localidad.builder()
@@ -26,30 +30,6 @@ public class Main {
                 .provincia(buenosAires)
                 .build();
 
-        Localidad laPlata = Localidad.builder()
-                .id(2L)
-                .nombre("La Plata")
-                .provincia(buenosAires)
-                .build();
-
-        Provincia cordoba = Provincia.builder()
-                .id(2L)
-                .nombre("Córdoba")
-                .build();
-
-        Localidad cordobaCapital = Localidad.builder()
-                .id(3L)
-                .nombre("Córdoba Capital")
-                .provincia(cordoba)
-                .build();
-
-        Localidad villaCarlosPaz = Localidad.builder()
-                .id(4L)
-                .nombre("Villa Carlos Paz")
-                .provincia(cordoba)
-                .build();
-
-        // Crear domicilios
         Domicilio domicilio1 = Domicilio.builder()
                 .id(1L)
                 .calle("Calle 1")
@@ -58,6 +38,12 @@ public class Main {
                 .piso(1)
                 .nroDpto(1)
                 .localidad(caba)
+                .build();
+
+        Localidad laPlata = Localidad.builder()
+                .id(2L)
+                .nombre("La Plata")
+                .provincia(buenosAires)
                 .build();
 
         Domicilio domicilio2 = Domicilio.builder()
@@ -70,6 +56,19 @@ public class Main {
                 .localidad(laPlata)
                 .build();
 
+
+        Provincia cordoba = Provincia.builder()
+                .id(2L)
+                .nombre("Córdoba")
+                .pais(argentina)
+                .build();
+
+        Localidad cordobaCapital = Localidad.builder()
+                .id(3L)
+                .nombre("Córdoba Capital")
+                .provincia(cordoba)
+                .build();
+
         Domicilio domicilio3 = Domicilio.builder()
                 .id(3L)
                 .calle("Calle 3")
@@ -79,6 +78,15 @@ public class Main {
                 .nroDpto(3)
                 .localidad(cordobaCapital)
                 .build();
+
+
+
+        Localidad villaCarlosPaz = Localidad.builder()
+                .id(4L)
+                .nombre("Villa Carlos Paz")
+                .provincia(cordoba)
+                .build();
+
 
         Domicilio domicilio4 = Domicilio.builder()
                 .id(4L)
@@ -90,7 +98,7 @@ public class Main {
                 .localidad(villaCarlosPaz)
                 .build();
 
-        // Crear sucursales
+        // Crear sucursales Para buenos Aires
         Sucursal sucursal1 = Sucursal.builder()
                 .id(1L)
                 .nombre("Sucursal 1")
@@ -108,6 +116,8 @@ public class Main {
                 .esCasaMatriz(false)
                 .domicilio(domicilio2)
                 .build();
+
+        // Crear Sucursales Para Cordoba
 
         Sucursal sucursal3 = Sucursal.builder()
                 .id(3L)
@@ -204,7 +214,3 @@ public class Main {
 
 
     }
-
-
-
-}
