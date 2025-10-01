@@ -9,6 +9,13 @@
         </processorPath>
         <module name="org.example.traza1.main" />
       </profile>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Traza1_IbarraGonzaloo" />
+        <module name="Traza2_IbarraGonzalo" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="17" />
   </component>

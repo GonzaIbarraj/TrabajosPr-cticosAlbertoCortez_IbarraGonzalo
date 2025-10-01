@@ -80,7 +80,6 @@ public class Main {
                 .build();
 
 
-
         Localidad villaCarlosPaz = Localidad.builder()
                 .id(4L)
                 .nombre("Villa Carlos Paz")
@@ -204,7 +203,7 @@ public class Main {
 // Mostrar las sucursales de una empresa deerminada
         Optional<Empresa> empresa = empresaRepository.findById(2L);
         if (empresa.isPresent()) {
-            System.out.println("Sucursales de la empresa con ID "  + ":");
+            System.out.println("Sucursales de la empresa con ID " + ":");
             Set<Sucursal> sucursales = empresa.get().getSucursales();
             sucursales.forEach(System.out::println);
         } else {
@@ -212,5 +211,5 @@ public class Main {
         }
 
 
-
     }
+}
